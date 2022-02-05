@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>El Ahorcado</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="titulo">El ahorcado</h1>
+        <button id= "btnJuego">Comenzar Juego</button>
+        <input type="text" id="agregarPalabra" placeholder="Escriba una nueva palabra" >
+        <button id="btnAgregarPalabra">Agregar palabra</button>
+    </div>
+    <div class="canvas">
+        <canvas id="canvas" class="ocultar" width="1200px" height="600px"></canvas>
+    </div>
+    <div id="finalizar" class="ocultar">
+        <p class="finalizar__pa">Opss, haz perdido!</p>
+        <button id="btnPerdistes">Da click para reiniciar</button>
+    </div>
+    <div id="ganastes" class="ocultar">
+        <p class="finalizar__pa">Felicidases! Haz ganago!</p>
+        <button id="btnGanastes">Da click para reiniciar</button>
+    </div>
+    <script src="/genrarPalabra.js"></script>
+    <script src="dibujarAhorcado.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
