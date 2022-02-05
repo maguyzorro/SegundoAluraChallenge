@@ -129,8 +129,8 @@ function parte10(color){
        case 9: parte9(color);
        break;
        case 10: parte10(color);
+                terminarJuego();
        break;
-       case 11: terminarJuego();
-       break;
+       
    }
  }                   
