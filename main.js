@@ -9,9 +9,10 @@ const btnGanastes = document.getElementById("btnGanastes");
 const divGanastes = document.getElementById("ganastes");
 const divFinalizar = document.getElementById("finalizar");
 const btnPerdiste = document.getElementById("btnPerdistes");
-var palabras =["perro","gato","vaca","caracol","escalera","alcoba","puerta","vaso","vela"];
+var palabras =["PERRO","GATO","VACA","CARACOL","ESCALERA","ALCOBA","PUERTA","VASO","VELA"];
 var intentos =1;
-var letra="";
+var code=0;
+var letra ="";
 //var palabraAdivinar = obtenerPalabra(palabras);
 var color = "#8B9068";
 var color2 ="#2962FF";
@@ -24,25 +25,30 @@ btnJuego.addEventListener("click", function (){
     repetirLineas(palabra);
     canvas.classList.toggle("ocultar");
     window.addEventListener("keydown", function(e){
-        letra = e.key
-        if(!palabra.includes(letra)){
-            escribirLetraErrada(obtenerXdeLetraErrada(intentos),letra);
-            llamarParte(intentos);
-            intentos++; 
+        letra = e.key.toUpperCase();
+        code = e.keyCode;
+        if(!validarLetra(code)){
+            alert("Solo se aceptan caracteres de letras");
         }
         else{
-            for(let i =0; i<palabra.length;i++){
-                if(letra ==palabra[i]){
-                    escribirLetraAcertada(obtenerXdeLaLetraAcertada(i),letra);
-                    aciertos.splice(i,1,letra);
+            if(!palabra.includes(letra)){
+                escribirLetraErrada(obtenerXdeLetraErrada(intentos),letra);
+                llamarParte(intentos);
+                intentos++; 
+            }
+            else{
+                for(let i =0; i<palabra.length;i++){
+                    if(letra ==palabra[i]){
+                        escribirLetraAcertada(obtenerXdeLaLetraAcertada(i),letra);
+                        aciertos.splice(i,1,letra);
+                    }
+                        
                 }
-                    
-            }
-            if(aciertos.join("") == palabra){
-                ganastes();  
-            }
-        } 
-           
+                if(aciertos.join("") == palabra){
+                    ganastes();  
+                }
+            } 
+        }    
     })   
     if(btnJuego.textContent==="Comenzar Juego"){
     btnJuego.textContent ="terminar Juego";
@@ -252,5 +258,13 @@ function palabraDeComparacion(palabraAdivinar){
 //Fincion para agregar nuevas palabras al arreglo======================
 function anhadirPalabra (palabra){
     palabras.push(palabra);
+}
+function validarLetra(charCode){ 
+    if (charCode >=65 && charCode <=90){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 //Fin=================================================================>
