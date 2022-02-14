@@ -9,6 +9,8 @@ const btnGanastes = document.getElementById("btnGanastes");
 const divGanastes = document.getElementById("ganastes");
 const divFinalizar = document.getElementById("finalizar");
 const btnPerdiste = document.getElementById("btnPerdistes");
+const btnCerrarVentana = document.getElementById("btnCerrarVentana");
+const divOcultar = document.getElementById("divOcultar");
 var palabras =["PERRO","GATO","VACA","CARACOL","ESCALERA","ALCOBA","PUERTA","VASO","VELA"];
 var intentos =1;
 var code=0;
@@ -27,8 +29,9 @@ btnJuego.addEventListener("click", function (){
     window.addEventListener("keydown", function(e){
         letra = e.key.toUpperCase();
         code = e.keyCode;
-        if(!validarLetra(code)){
-            alert("Solo se aceptan caracteres de letras");
+        console.log(code);
+        if(validarLetra(code)==false){
+            divOcultar.classList.replace("ocultar", "mostrar");
         }
         else{
             if(!palabra.includes(letra)){
@@ -58,6 +61,11 @@ btnJuego.addEventListener("click", function (){
         
     }    
 })
+btnCerrarVentana.addEventListener("click",()=>{
+    divOcultar.classList.replace("mostrar", "ocultar");
+    console.log("click");
+});
+//====================================================================>
 //Agregar palabra nueva al arreglo=====================================
 btnAgregarPalabra.addEventListener("click",()=>{
     anhadirPalabra(palabraAgregar.value);

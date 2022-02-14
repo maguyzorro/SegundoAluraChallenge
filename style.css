@@ -45,8 +45,8 @@ input{
 .canvas{
     box-shadow: 0px 0px 1px gray,0px 0px 2px gray,0px 0px 3px gray,0px 0px 4px gray;
 }
-    .ocultar{
-    display: none;
+.ocultar{
+display: none;
 }
 .div__finJuego{
     width: 100%;
@@ -74,5 +74,40 @@ input{
     font-size: 17px;
     font-style: italic;
     text-decoration: underline;
+}
+#ventana{
+    box-sizing: border-box;
+    width: 200px;
+    height:300px;
+    background-color:transparent;
+    position: absolute;
+    right: 15px;
+    bottom: 0px;
+    z-index: 20;
+    overflow: hidden;
+}
+#divOcultar{
+    width: 85%;
+    min-height: 85%;
+    background-color: #83e9e9;
+    box-shadow: 0px 0px 2px gray;
+    margin: 0px auto;
+}
+#btnCerrarVentana{
+    float: right;
+    margin: 20px;
+    cursor: pointer;
+}
+.ventana__p{
+    clear: both;
+    float: none;
+    text-align: center;
+    font-size: 25px;
+}
+#divOcultar .mostrar{
+    transform: translateY(0px);
+}
+#divOcultar .ocultar{
+    transform: translateY(300px);
 }
 
